@@ -13,7 +13,7 @@
 %               where any negative numbers in the input become 0 in the output.
 % Input:    A color image array in  of size N x M x D where N, M > 0.
 % Output:   A modified matrix in which all the values less than 0 are
-%               changed to 0 (result: totally nonegative matrix)
+%                  changed to 0 (result: totally nonegative matrix)
 function [ out ] = ReLU(in)
 
     out = in;
@@ -22,7 +22,7 @@ function [ out ] = ReLU(in)
     %   ndims(D) = Number of dimensions in image (which should be 3)
     %   ndims(ndims(D)) = Get the number of D in channels from total number 
     %   of dimensions, which again should be 3 (how many in last 1,1,:),
-    %   
+      
     D = ndims(ndims(in));
 
     for k=1:D;

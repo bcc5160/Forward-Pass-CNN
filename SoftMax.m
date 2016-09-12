@@ -13,13 +13,13 @@
 % Output:   An array of dimensions 1,1,k but each value is a probability
 %            and they all addd to 1.
 function [ out ] = SoftMax( in )
-%   (Note: For each "channel", k/Sum of all k. Return all 3D of matrix)
+%   (Note: For each "channel", k/Sum of all k. Return all 3D of matrix )
     
     % Get last dimension
     D = ndims(ndims(in));
     
-    % alpha is the max of the first row, first column of all three
-    % channels, 1 to k
+    % alpha is the max of a fixed first row, first column of all three
+    % channels, get max of 1 to k
     alpha = max(in(1,1,:));
     
     % out should match in, we are now going to change the values
@@ -27,7 +27,7 @@ function [ out ] = SoftMax( in )
     sum = 0;
     
     for k=1:D;
-        sum = exp(in(1,1,k)-alpha);
+        sum = sum + exp(in(1,1,k)-alpha);
     end
     
     for k=1:D
