@@ -19,9 +19,9 @@ function [ out ] = ReLU(in)
     out = in;
     
     % Get the last dimension of the image matrix 
-    %   ndims(D) = Number of dimensions in image (which should be 3)
+    %   ndims(D) = Number of dimensions in image
     %   ndims(ndims(D)) = Get the number of D in channels from total number 
-    %   of dimensions, which again should be 3 (how many in last 1,1,:),
+    %   of dimensions (how many in last 1,1,:)
       
     D = ndims(ndims(in));
 
