@@ -19,15 +19,15 @@ function [ out ] = SoftMax( in )
     
     % alpha is the max of a fixed first row, first column of all three
     % channels, get max of 1 to k
-    alpha = max(in(1,1,:));
+    alpha = double(max(in(1,1,:)));
     
     % out should match in, we are now going to change the values
-    out = in;
+    out = double(in);
     sum = 0;
     
     % Find sum
     for k=1:D;
-        sum = sum + exp(in(1,1,k)-alpha);
+        sum = double(sum + exp(in(1,1,k)-alpha));
     end
     
     % Calculate SoftMax for each k

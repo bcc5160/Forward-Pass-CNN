@@ -16,7 +16,7 @@
 %                  changed to 0 (result: totally nonegative matrix)
 function [ out ] = ReLU(in)
 
-    out = in;
+    out = double(in);
     
     % Get the last dimension of the image matrix 
     %   ndims(D) = Number of dimensions in image
