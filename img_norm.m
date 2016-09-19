@@ -13,5 +13,5 @@
 % Output:   A matrix of size N x M x 3 whose elements are scaled into range
 %           [-0.5, 0.5]
 function out = img_norm(img_mtrx)
-    out = img_mtrx ./ 255.0 - 0.5;
+    out = double(img_mtrx) ./ 255.0 - 0.5;
 end
