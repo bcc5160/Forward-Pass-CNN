@@ -7,7 +7,7 @@ for i = 1:size(imageset, 4)
   [m, maxNdx] = max(probabilities);
   
   calculatedLabel = classlabels{maxNdx};
-  trueLabel = classlabels{trueclass(imgNdx)};
+  trueLabel = classlabels{trueclass(i)};
   report = ['Calculated class: ', calculatedLabel, '; True class: ', trueLabel];
   disp(report);
   
