@@ -15,7 +15,7 @@
 function [ out ] = SoftMax( in )
 
     % Get last dimension
-    D = ndims(ndims(in));
+    D = size(in, 3);
     
     % alpha is the max of a fixed first row, first column of all three
     % channels, get max of 1 to k
