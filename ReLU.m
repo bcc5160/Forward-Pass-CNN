@@ -15,19 +15,9 @@
 % Output:   A modified matrix in which all the values less than 0 are
 %                  changed to 0 (result: totally nonegative matrix)
 function [ out ] = ReLU(in)
-
-    out = double(in);
+ 
+    out = max(in, 0);
     
-    % Get the last dimension of the image matrix 
-    %   ndims(D) = Number of dimensions in image
-    %   ndims(ndims(D)) = Get the number of D in channels from total number 
-    %   of dimensions (how many in last 1,1,:)
-      
-    D = ndims(ndims(in));
-
-    for k=1:D;
-        out = max(in, 0);
-    end
 
 end
 
