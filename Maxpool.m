@@ -1,18 +1,16 @@
 function [output] = Maxpool (input)
 
-outSize = size (input);
-outSize(1) = outSize(1) / 2;
-outSize(2) = outSize(2) / 2;
+  outSize = size(input);
+  outSize(1) = outSize(1) / 2;
+  outSize(2) = outSize(2) / 2;
+  
+  output = zeros(outSize);
 
-output = zeros(outSize);
-
-for i = 1:outSize(1)
-  for j = 1:outSize(2)
-    for d = 1:outSize(3)
-      temp = input(2*i-1:2*i,2*j-1:2*j,d);
-      output(i,j,d) = max(temp(:));
-    endfor
-  endfor
-endfor
+  tl = input(1:2:end, 1:2:end, :);
+  tr = input(1:2:end, 2:2:end, :);
+  bl = input(2:2:end, 1:2:end, :);
+  br = input(2:2:end, 2:2:end, :);
+  
+  output = max(max(tl, tr), max(bl, br));
 
 endfunction
