@@ -13,4 +13,4 @@ function [output] = Maxpool (input)
   
   output = max(max(tl, tr), max(bl, br));
 
-endfunction
+end

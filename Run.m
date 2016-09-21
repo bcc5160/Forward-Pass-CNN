@@ -4,6 +4,8 @@ load Test/cifar10testdata.mat;
 imageCount = size(imageset, 4);
 totalCorrect = 0;
 
+confusionMatrix = zeros(10,10);
+
 for i = 1:imageCount
 
   probabilities = Classify(imageset(:,:,:,i), filterbanks, biasvectors);
@@ -11,7 +13,9 @@ for i = 1:imageCount
   
   calculatedLabel = classlabels{maxNdx};
   trueLabel = classlabels{trueclass(i)};
-  report = ['Calculated class: ', calculatedLabel, '; True class: ', trueLabel];
+  confusionMatrix(maxNdx,trueclass(i)) = confusionMatrix(maxNdx,trueclass(i)) +1;
+  report = [' Calculated class: ', calculatedLabel, '; True class: ', trueLabel];
+  fprintf('%f', double(i));
   disp(report);
   
   if maxNdx == trueclass(i)
@@ -23,3 +27,4 @@ for i = 1:imageCount
 end
 
 disp(totalCorrect);
+disp(confusionMatrix);
